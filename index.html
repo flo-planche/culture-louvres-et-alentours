@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culture Louvres & Alentours — Association culturelle du Nord-Est Val d'Oise</title>
+    <link rel="icon" type="image/png" href="assets/images/logo-black.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --color-bg: #FFFFFF;
+            --color-bg-alt: #F4F4F5;
+            --color-ink: #16181C;
+            --color-text-secondary: #5B5F66;
+            --color-border: #E4E4E7;
+
+            --brand-orange: #F2A83A;
+            --brand-coral: #F0713F;
+            --brand-pink: #D8306C;
+            --brand-purple: #8B54A0;
+            --brand-teal: #3C90A8;
+            --gradient-brand: linear-gradient(90deg, var(--brand-orange), var(--brand-coral), var(--brand-pink), var(--brand-purple), var(--brand-teal));
+
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Raleway', sans-serif;
+
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 48px;
+            --space-2xl: 80px;
+
+            --radius-md: 8px;
+            --radius-lg: 16px;
+
+            --transition-fast: 200ms ease;
+            --transition-reveal: 550ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-ink);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        img { max-width: 100%; display: block; }
+
+        a { color: inherit; }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity var(--transition-reveal), transform var(--transition-reveal);
+        }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1.is-visible { transition-delay: 90ms; }
+        .reveal-delay-2.is-visible { transition-delay: 180ms; }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+        }
+
+        .gradient-bar {
+            height: 6px;
+            background: var(--gradient-brand);
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+        }
+
+        .eyebrow {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--brand-coral);
+            margin-bottom: var(--space-sm);
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+
+        /* ============================================
+           NAV
+           ============================================ */
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .nav-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: var(--space-md) var(--space-xl);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo img { height: 34px; }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+        }
+
+        .nav-link {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.03em;
+            text-decoration: none;
+            color: var(--color-ink);
+            transition: color var(--transition-fast);
+        }
+
+        .nav-link:hover { color: var(--brand-coral); }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .burger span { width: 22px; height: 2px; background: var(--color-ink); }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            padding: var(--space-md) var(--space-xl) var(--space-lg);
+            gap: var(--space-md);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .mobile-menu.active { display: flex; }
+
+        /* ============================================
+           HERO
+           ============================================ */
+
+        .hero {
+            background: var(--color-ink);
+            color: #fff;
+            padding: var(--space-2xl) var(--space-xl) 64px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            max-width: 720px;
+            margin: 0 auto var(--space-md);
+            line-height: 1.15;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto var(--space-xl);
+            color: rgba(255,255,255,0.75);
+            font-size: 17px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.03em;
+            padding: 13px 28px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            display: inline-block;
+            background: var(--gradient-brand);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(216, 48, 108, 0.35);
+        }
+
+        .btn-secondary {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.03em;
+            padding: 13px 28px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            display: inline-block;
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.4);
+            transition: all var(--transition-fast);
+        }
+
+        .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+        /* ============================================
+           SECTION GENERIC
+           ============================================ */
+
+        section { padding: var(--space-2xl) 0; }
+        .section-alt { background: var(--color-bg-alt); }
+
+        .section-header {
+            max-width: 640px;
+            margin: 0 auto var(--space-xl);
+            text-align: center;
+        }
+
+        .section-header h2 { font-size: 30px; margin-bottom: var(--space-sm); }
+        .section-header p { color: var(--color-text-secondary); font-size: 16px; }
+
+        /* ============================================
+           HISTOIRE
+           ============================================ */
+
+        .histoire-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+
+        .histoire-grid .stat-row {
+            display: flex;
+            gap: var(--space-xl);
+            margin-top: var(--space-lg);
+        }
+
+        .stat { }
+        .stat strong {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 30px;
+            font-weight: 800;
+            background: var(--gradient-brand);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+        .stat span {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+        }
+
+        .histoire-text p {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .histoire-visual {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .histoire-visual img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* ============================================
+           PROJET — HOPPY MUSIC
+           ============================================ */
+
+        .project-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--color-ink);
+            color: #fff;
+        }
+
+        .project-visual { position: relative; min-height: 320px; }
+        .project-visual img { width: 100%; height: 100%; object-fit: cover; }
+
+        .project-content {
+            padding: var(--space-2xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-content p { color: rgba(255,255,255,0.75); margin-bottom: var(--space-lg); }
+
+        /* ============================================
+           ACTIONS LOCALES
+           ============================================ */
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .action-card {
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .action-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+        }
+
+        .action-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--gradient-brand);
+            margin-bottom: var(--space-md);
+        }
+
+        .action-card h3 { font-size: 18px; margin-bottom: var(--space-xs); }
+
+        .action-role {
+            display: inline-block;
+            font-size: 12px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: var(--brand-coral);
+            margin-bottom: var(--space-sm);
+        }
+
+        .action-card p { color: var(--color-text-secondary); font-size: 14px; margin-bottom: var(--space-sm); }
+
+        .action-pending {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+            font-style: italic;
+        }
+
+        /* ============================================
+           MECENAT
+           ============================================ */
+
+        .mecenat-card {
+            background: var(--color-ink);
+            color: #fff;
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+
+        .mecenat-card p { color: rgba(255,255,255,0.75); margin-bottom: var(--space-lg); }
+
+        .mecenat-points {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .mecenat-points li {
+            padding-left: var(--space-lg);
+            position: relative;
+            font-size: 14px;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .mecenat-points li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gradient-brand);
+        }
+
+        /* ============================================
+           CONTACT / FOOTER
+           ============================================ */
+
+        .footer {
+            background: var(--color-bg-alt);
+            padding: var(--space-2xl) 0 var(--space-lg);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 0.8fr;
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .footer-grid img.footer-logo { height: 32px; margin-bottom: var(--space-md); }
+
+        .footer-grid p { color: var(--color-text-secondary); font-size: 14px; }
+
+        .footer-col h4 {
+            font-family: var(--font-heading);
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-link {
+            display: block;
+            text-decoration: none;
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            margin-bottom: var(--space-sm);
+            transition: color var(--transition-fast);
+        }
+
+        .footer-link:hover { color: var(--brand-coral); }
+
+        .footer-bottom {
+            border-top: 1px solid var(--color-border);
+            padding-top: var(--space-lg);
+            text-align: center;
+            font-size: 12px;
+            color: var(--color-text-secondary);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .burger { display: flex; }
+            .histoire-grid,
+            .project-card,
+            .mecenat-card,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .actions-grid { grid-template-columns: 1fr 1fr; }
+            .project-visual { min-height: 220px; }
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 0 var(--space-lg); }
+            .hero h1 { font-size: 28px; }
+            .actions-grid { grid-template-columns: 1fr; }
+            .footer-grid { gap: var(--space-xl); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gradient-bar"></div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo"><img src="assets/images/logo-black.png" alt="Culture Louvres & Alentours"></a>
+            <div class="nav-links">
+                <a href="#histoire" class="nav-link">Qui sommes-nous</a>
+                <a href="#projets" class="nav-link">Nos projets</a>
+                <a href="#actions" class="nav-link">Nos actions</a>
+                <a href="#mecenat" class="nav-link">Mécénat</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#histoire" class="nav-link">Qui sommes-nous</a>
+            <a href="#projets" class="nav-link">Nos projets</a>
+            <a href="#actions" class="nav-link">Nos actions</a>
+            <a href="#mecenat" class="nav-link">Mécénat</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <p class="eyebrow" style="color: var(--brand-orange);">Culture Louvres & Alentours</p>
+        <h1>L'association culturelle du Nord-Est Val d'Oise</h1>
+        <p>Née en 2023 à Louvres, Culture Louvres & Alentours fait vivre la scène locale toute l'année : concerts, scènes ouvertes, un grand festival open air, et un engagement citoyen sur le territoire.</p>
+        <div class="hero-actions">
+            <a href="#mecenat" class="btn-primary">Devenir mécène</a>
+            <a href="#projets" class="btn-secondary">Découvrir nos projets</a>
+        </div>
+    </header>
+
+    <!-- HISTOIRE -->
+    <section id="histoire">
+        <div class="container histoire-grid">
+            <div class="histoire-visual reveal">
+                <img src="assets/images/hoppy-music-highlight.jpg" alt="Concert Hoppy Music Festival">
+            </div>
+            <div class="histoire-text reveal reveal-delay-1">
+                <p class="eyebrow">Qui sommes-nous</p>
+                <h2>Une aventure collective, née d'une rencontre</h2>
+                <p>En 2023, une bande de passionnés de musique, de bière artisanale et de valeurs communes se rencontre à Louvres. Très vite naît l'envie de créer un projet associatif et collaboratif au service du territoire : Culture Louvres & Alentours voit le jour.</p>
+                <p>Notre mission : mettre à profit nos compétences et nos expériences plurielles pour créer une émulation culturelle saine et durable dans le Nord-Est du Val d'Oise, et tisser du lien social dans une démarche bienveillante, locale et éco-responsable.</p>
+                <div class="stat-row">
+                    <div class="stat"><strong>2023</strong><span>Création de l'association</span></div>
+                    <div class="stat"><strong>2</strong><span>Éditions du Festival</span></div>
+                    <div class="stat"><strong>4</strong><span>Hoppy Music Sessions</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOS PROJETS -->
+    <section id="projets" class="section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="eyebrow">Nos projets</p>
+                <h2>Hoppy Music, notre projet phare</h2>
+                <p>Musiques éclectiques, artistes locaux et bières artisanales : Hoppy Music réunit un festival annuel et des sessions plus intimistes tout au long de l'année.</p>
+            </div>
+            <div class="project-card reveal">
+                <div class="project-visual">
+                    <img src="assets/images/hoppy-music-festival-2026.jpg" alt="Hoppy Music Festival 2026">
+                </div>
+                <div class="project-content">
+                    <p class="eyebrow" style="color: var(--brand-orange);">Hoppy Music</p>
+                    <p>Le Hoppy Music Festival réunit chaque année artistes locaux, foodtrucks, artisans et bières artisanales pour une journée conviviale à Louvres. Entre deux éditions, les Hoppy Music Sessions font vivre la scène locale dans des formats plus intimistes.</p>
+                    <a href="https://hoppymusic.fr" target="_blank" class="btn-primary">Découvrir Hoppy Music</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOS ACTIONS LOCALES -->
+    <section id="actions">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="eyebrow">Sur le terrain</p>
+                <h2>Nos actions locales</h2>
+                <p>Au-delà de nos propres événements, nous accompagnons les acteurs de notre territoire — gestion de buvette, et parfois programmation artistique.</p>
+            </div>
+            <div class="actions-grid">
+                <div class="action-card reveal">
+                    <div class="action-icon"></div>
+                    <span class="action-role">Buvette + artistes</span>
+                    <h3>Fête de la Musique à Louvres</h3>
+                    <p>Notre participation à la Fête de la Musique de la ville de Louvres.</p>
+                    <p class="action-pending">Détails et photos à venir</p>
+                </div>
+                <div class="action-card reveal reveal-delay-1">
+                    <div class="action-icon"></div>
+                    <span class="action-role">Buvette</span>
+                    <h3>Halloween à Louvres</h3>
+                    <p>Gestion de la buvette lors de l'événement Halloween organisé par la ville.</p>
+                    <p class="action-pending">Détails et photos à venir</p>
+                </div>
+                <div class="action-card reveal reveal-delay-2">
+                    <div class="action-icon"></div>
+                    <span class="action-role">Buvette</span>
+                    <h3>Téléthon</h3>
+                    <p>Notre soutien au Téléthon aux côtés des autres associations locales.</p>
+                    <p class="action-pending">Détails et photos à venir</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MECENAT -->
+    <section id="mecenat" class="section-alt">
+        <div class="container">
+            <div class="mecenat-card reveal">
+                <div>
+                    <p class="eyebrow" style="color: var(--brand-orange);">Mécénat & partenaires</p>
+                    <h2>Soutenez une association culturelle locale</h2>
+                    <p>Chaque événement que nous organisons demande du temps, de l'énergie et des ressources. Le mécénat d'entreprise et les dons individuels nous permettent de pérenniser nos actions, de soutenir les artistes émergents et de renforcer notre engagement sur le territoire.</p>
+                    <a href="https://www.helloasso.com/associations/culture-louvres-et-alentours" target="_blank" class="btn-primary">Faire un don via HelloAsso</a>
+                </div>
+                <ul class="mecenat-points">
+                    <li>Développement culturel local et éco-responsable</li>
+                    <li>Soutien aux artistes émergents de la scène francilienne</li>
+                    <li>Lien social et animation du territoire toute l'année</li>
+                    <li>Association loi 1901, basée à Louvres (95380)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACT -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img src="assets/images/logo-black.png" alt="Culture Louvres & Alentours" class="footer-logo">
+                    <p>Association culturelle loi 1901, basée à Louvres, Val d'Oise (95380).</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens</h4>
+                    <a href="#histoire" class="footer-link">Qui sommes-nous</a>
+                    <a href="#projets" class="footer-link">Nos projets</a>
+                    <a href="#actions" class="footer-link">Nos actions</a>
+                    <a href="#mecenat" class="footer-link">Mécénat</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="#" class="footer-link" id="contactEmailLink">Nous écrire</a>
+                    <a href="https://www.instagram.com/hoppymusic_festival/" target="_blank" class="footer-link">Instagram</a>
+                    <a href="https://www.facebook.com/hoppymusicfestival" target="_blank" class="footer-link">Facebook</a>
+                    <a href="https://www.helloasso.com/associations/culture-louvres-et-alentours" target="_blank" class="footer-link">HelloAsso</a>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2026 Culture Louvres & Alentours — Louvres, Val d'Oise</div>
+        </div>
+    </footer>
+
+    <script>
+        const burger = document.getElementById('burger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        burger.addEventListener('click', () => mobileMenu.classList.toggle('active'));
+        document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        });
+
+        const revealTargets = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealTargets.forEach(el => revealObserver.observe(el));
+
+        const emailLink = document.getElementById('contactEmailLink');
+        if (emailLink) {
+            const emailUser = 'contact';
+            const emailDomain = 'culturelouvresetalentours.fr';
+            emailLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.location.href = 'mailto:' + emailUser + '@' + emailDomain;
+            });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId.length <= 1) return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
