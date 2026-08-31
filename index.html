@@ -478,7 +478,12 @@
         }
 
         @media (max-width: 600px) {
-            .container { padding: 0 var(--space-lg); }
+            :root {
+                --space-lg: 18px;
+                --space-xl: 20px;
+                --space-2xl: 44px;
+            }
+
             .hero h1 { font-size: 28px; }
             .actions-grid { grid-template-columns: 1fr; }
             .footer-grid { gap: var(--space-xl); }
