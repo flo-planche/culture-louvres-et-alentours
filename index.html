@@ -3,12 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Culture Louvres & Alentours — Association culturelle du Nord-Est Val d'Oise</title>
+    <title>Culture Louvres & Alentours | Association culturelle du Val d'Oise</title>
+    <meta name="description" content="Association culturelle loi 1901 à Louvres (Val d'Oise) : Hoppy Music Festival, actions locales et mécénat culturel dans le Nord-Est du 95.">
+    <meta name="keywords" content="association culturelle Louvres, mécénat Val d'Oise, Hoppy Music Festival, association loi 1901 95380, culture Val d'Oise, événements Louvres, don association Louvres, association 95">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Culture Louvres & Alentours">
+    <link rel="canonical" href="https://culturelouvresetalentours.fr/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Culture Louvres & Alentours">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title" content="Culture Louvres & Alentours — Association culturelle du Val d'Oise">
+    <meta property="og:description" content="Association culturelle loi 1901 à Louvres (95) : Hoppy Music Festival, actions locales sur le territoire et mécénat culturel dans le Val d'Oise.">
+    <meta property="og:url" content="https://culturelouvresetalentours.fr/">
+    <meta property="og:image" content="https://culturelouvresetalentours.fr/assets/images/hoppy-music-festival-2026.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Culture Louvres & Alentours — Association culturelle du Val d'Oise">
+    <meta name="twitter:description" content="Association culturelle loi 1901 à Louvres (95) : Hoppy Music Festival, actions locales sur le territoire et mécénat culturel dans le Val d'Oise.">
+    <meta name="twitter:image" content="https://culturelouvresetalentours.fr/assets/images/hoppy-music-festival-2026.jpg">
+
     <link rel="icon" type="image/png" href="assets/images/logo-black.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "NGO",
+        "name": "Culture Louvres & Alentours",
+        "url": "https://culturelouvresetalentours.fr/",
+        "logo": "https://culturelouvresetalentours.fr/assets/images/logo-black.png",
+        "description": "Association culturelle loi 1901 basée à Louvres, dans le Val d'Oise, organisatrice du Hoppy Music Festival et des Hoppy Music Sessions, et engagée dans des actions locales sur son territoire.",
+        "foundingDate": "2023",
+        "sameAs": [
+            "https://www.instagram.com/hoppymusic_festival/",
+            "https://www.facebook.com/hoppymusicfestival",
+            "https://www.helloasso.com/associations/culture-louvres-et-alentours"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Louvres",
+            "postalCode": "95380",
+            "addressRegion": "Val d'Oise",
+            "addressCountry": "FR"
+        },
+        "areaServed": "Val d'Oise"
+    }
+    </script>
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -347,7 +394,16 @@
             height: 44px;
             border-radius: 50%;
             background: var(--gradient-brand);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: var(--space-md);
+        }
+
+        .action-icon svg {
+            width: 22px;
+            height: 22px;
+            color: #fff;
         }
 
         .action-card h3 { font-size: 18px; margin-bottom: var(--space-xs); }
@@ -518,7 +574,7 @@
     <!-- HERO -->
     <header class="hero">
         <p class="eyebrow" style="color: var(--brand-orange);">Culture Louvres & Alentours</p>
-        <h1>L'association culturelle du Nord-Est Val d'Oise</h1>
+        <h1>L'association culturelle de Louvres et du Nord-Est Val d'Oise</h1>
         <p>Née en 2023 à Louvres, Culture Louvres & Alentours fait vivre la scène locale toute l'année : concerts, scènes ouvertes, un grand festival open air, et un engagement citoyen sur le territoire.</p>
         <div class="hero-actions">
             <a href="#mecenat" class="btn-primary">Devenir mécène</a>
@@ -530,7 +586,7 @@
     <section id="histoire">
         <div class="container histoire-grid">
             <div class="histoire-visual reveal">
-                <img src="assets/images/hoppy-music-highlight.jpg" alt="Concert Hoppy Music Festival">
+                <img src="assets/images/hoppy-music-highlight.jpg" alt="Concert organisé par Culture Louvres & Alentours à Louvres, Val d'Oise">
             </div>
             <div class="histoire-text reveal reveal-delay-1">
                 <p class="eyebrow">Qui sommes-nous</p>
@@ -556,7 +612,7 @@
             </div>
             <div class="project-card reveal">
                 <div class="project-visual">
-                    <img src="assets/images/hoppy-music-festival-2026.jpg" alt="Hoppy Music Festival 2026">
+                    <img src="assets/images/hoppy-music-festival-2026.jpg" alt="Affiche Hoppy Music Festival 2026 à Louvres, 12 septembre">
                 </div>
                 <div class="project-content">
                     <p class="eyebrow" style="color: var(--brand-orange);">Hoppy Music</p>
@@ -577,21 +633,27 @@
             </div>
             <div class="actions-grid">
                 <div class="action-card reveal">
-                    <div class="action-icon"></div>
+                    <div class="action-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>
+                    </div>
                     <span class="action-role">Buvette + artistes</span>
                     <h3>Fête de la Musique à Louvres</h3>
                     <p>Notre participation à la Fête de la Musique de la ville de Louvres.</p>
                     <p class="action-pending">Détails et photos à venir</p>
                 </div>
                 <div class="action-card reveal reveal-delay-1">
-                    <div class="action-icon"></div>
+                    <div class="action-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5v2.5"/><ellipse cx="12" cy="14" rx="8" ry="7"/><path d="M12 7v14"/><path d="M7.5 8c-1.2 2-1.2 12 0 12"/><path d="M16.5 8c1.2 2 1.2 12 0 12"/></svg>
+                    </div>
                     <span class="action-role">Buvette</span>
                     <h3>Halloween à Louvres</h3>
                     <p>Gestion de la buvette lors de l'événement Halloween organisé par la ville.</p>
                     <p class="action-pending">Détails et photos à venir</p>
                 </div>
                 <div class="action-card reveal reveal-delay-2">
-                    <div class="action-icon"></div>
+                    <div class="action-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9.5-9A5 5 0 0112 5a5 5 0 019.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+                    </div>
                     <span class="action-role">Buvette</span>
                     <h3>Téléthon</h3>
                     <p>Notre soutien au Téléthon aux côtés des autres associations locales.</p>
@@ -621,8 +683,29 @@
         </div>
     </section>
 
-    <!-- FOOTER / CONTACT -->
-    <footer class="footer" id="contact">
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="eyebrow">Contact</p>
+                <h2>Parlons de votre projet</h2>
+                <p>Ville, entreprise, mécène ou simple curieux : nous serions ravis d'échanger avec vous sur nos actions et nos projets à venir.</p>
+            </div>
+            <div class="project-card reveal">
+                <div class="project-visual">
+                    <img src="assets/images/equipe-hoppy-music.jpg" alt="L'équipe de Culture Louvres & Alentours">
+                </div>
+                <div class="project-content">
+                    <p class="eyebrow" style="color: var(--brand-orange);">Nous contacter</p>
+                    <p>Que vous soyez une collectivité, une entreprise locale ou un particulier souhaitant nous soutenir ou collaborer avec nous, notre équipe se tient à votre disposition.</p>
+                    <a href="#" class="btn-primary email-link">Nous écrire</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div>
@@ -638,7 +721,7 @@
                 </div>
                 <div class="footer-col">
                     <h4>Contact</h4>
-                    <a href="#" class="footer-link" id="contactEmailLink">Nous écrire</a>
+                    <a href="#" class="footer-link email-link">Nous écrire</a>
                     <a href="https://www.instagram.com/hoppymusic_festival/" target="_blank" class="footer-link">Instagram</a>
                     <a href="https://www.facebook.com/hoppymusicfestival" target="_blank" class="footer-link">Facebook</a>
                     <a href="https://www.helloasso.com/associations/culture-louvres-et-alentours" target="_blank" class="footer-link">HelloAsso</a>
@@ -667,15 +750,15 @@
         }, { threshold: 0.15 });
         revealTargets.forEach(el => revealObserver.observe(el));
 
-        const emailLink = document.getElementById('contactEmailLink');
-        if (emailLink) {
-            const emailUser = 'contact';
-            const emailDomain = 'culturelouvresetalentours.fr';
-            emailLink.addEventListener('click', (e) => {
+        const emailLinks = document.querySelectorAll('.email-link');
+        const emailUser = 'culturelouvres';
+        const emailDomain = 'gmail.com';
+        emailLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
                 e.preventDefault();
                 window.location.href = 'mailto:' + emailUser + '@' + emailDomain;
             });
-        }
+        });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
