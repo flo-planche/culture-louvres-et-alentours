@@ -425,6 +425,32 @@
 
         .action-card p { color: var(--color-text-secondary); font-size: 14px; margin-bottom: var(--space-sm); }
 
+        .action-card-cta {
+            background: transparent;
+            border: 2px dashed var(--color-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .action-card-cta:hover {
+            border-color: var(--brand-coral);
+            box-shadow: none;
+        }
+
+        .action-card-cta .action-icon {
+            background: transparent;
+            border: 2px solid var(--brand-coral);
+        }
+
+        .action-card-cta .action-icon svg { color: var(--brand-coral); }
+
+        .action-card-cta h3 { margin-bottom: var(--space-xs); }
+
+        .action-card-cta p { max-width: 320px; }
+
         /* ============================================
            MECENAT
            ============================================ */
@@ -662,6 +688,14 @@
                     <span class="action-role">Buvette</span>
                     <h3>Téléthon</h3>
                     <p>Nous tenons la buvette aux côtés des autres associations locales, dans un esprit de solidarité et d'entraide propre à notre territoire.</p>
+                </div>
+                <div class="action-card action-card-cta reveal reveal-delay-1">
+                    <div class="action-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                    </div>
+                    <h3>Un événement à nous proposer ?</h3>
+                    <p>Buvette, scène ouverte, coup de main sur votre événement local : parlons-en !</p>
+                    <a href="#contact" class="btn-primary">Nous proposer un événement</a>
                 </div>
             </div>
         </div>
