@@ -361,37 +361,6 @@
         .project-visual { position: relative; min-height: 320px; }
         .project-visual img { width: 100%; height: 100%; object-fit: cover; }
 
-        .project-card--poster {
-            grid-template-rows: minmax(0, 1fr);
-            height: clamp(320px, 42vh, 460px);
-        }
-
-        .project-visual--poster {
-            position: relative;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .project-visual--poster::before {
-            content: "";
-            position: absolute;
-            inset: -20px;
-            background-image: url('assets/images/hoppy-music-festival-2026.jpg');
-            background-size: cover;
-            background-position: center;
-            filter: blur(30px) brightness(0.55) saturate(1.3);
-            transform: scale(1.15);
-        }
-        .project-visual--poster img {
-            position: relative;
-            z-index: 1;
-            height: 92%;
-            object-fit: contain;
-            filter: drop-shadow(0 18px 36px rgba(0,0,0,0.45));
-        }
-
         .project-content {
             padding: var(--space-2xl);
             display: flex;
@@ -400,6 +369,46 @@
         }
 
         .project-content p { color: rgba(255,255,255,0.75); margin-bottom: var(--space-lg); }
+
+        .project-tiles {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .project-tile {
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .project-tile:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+        }
+
+        .project-tile-visual { height: 230px; }
+        .project-tile-visual img { width: 100%; height: 100%; object-fit: cover; }
+
+        .project-tile-content {
+            padding: var(--space-lg);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-tile-content h3 { font-size: 20px; margin-bottom: var(--space-xs); }
+        .project-tile-content p { color: var(--color-text-secondary); font-size: 14px; margin-bottom: var(--space-md); flex: 1; }
+        .project-tile-content .stat { margin-bottom: var(--space-md); }
+        .project-tile-content .btn-primary { align-self: flex-start; }
+
+        @media (max-width: 900px) {
+            .project-tiles { grid-template-columns: 1fr; }
+        }
 
         /* ============================================
            ACTIONS LOCALES
@@ -585,10 +594,6 @@
                 grid-template-columns: 1fr;
             }
             .actions-grid { grid-template-columns: 1fr 1fr; }
-            .project-card--poster {
-                height: auto;
-                grid-template-rows: clamp(220px, 38vh, 320px) auto;
-            }
         }
 
         @media (max-width: 600px) {
@@ -666,17 +671,33 @@
         <div class="container">
             <div class="section-header reveal">
                 <p class="eyebrow">Nos projets</p>
-                <h2>Hoppy Music, notre projet phare</h2>
-                <p>Musiques éclectiques, artistes locaux et bières artisanales : Hoppy Music réunit un festival annuel et des sessions plus intimistes tout au long de l'année.</p>
+                <h2>Nos événements musicaux</h2>
+                <p>Un festival annuel en point d'orgue, et des Hoppy Music Sessions plus intimistes pour faire vivre la scène locale toute l'année.</p>
             </div>
-            <div class="project-card project-card--poster reveal">
-                <div class="project-visual project-visual--poster">
-                    <img src="assets/images/hoppy-music-festival-2026.jpg" alt="Affiche Hoppy Music Festival 2026 à Louvres, 12 septembre" loading="lazy">
+            <div class="project-tiles">
+                <div class="project-tile reveal">
+                    <div class="project-tile-visual">
+                        <img src="assets/images/hoppy-music-festival-live.jpg" alt="Concert du Hoppy Music Festival à Louvres" loading="lazy">
+                    </div>
+                    <div class="project-tile-content">
+                        <span class="action-role">Festival annuel</span>
+                        <h3>Hoppy Music Festival</h3>
+                        <p>Notre grand rendez-vous : artistes locaux, foodtrucks, artisans et bières artisanales pour une journée conviviale à Louvres.</p>
+                        <div class="stat"><strong>2</strong><span>Éditions organisées</span></div>
+                        <a href="https://hoppymusic.fr" target="_blank" class="btn-primary">Découvrir le festival</a>
+                    </div>
                 </div>
-                <div class="project-content">
-                    <p class="eyebrow" style="color: var(--brand-orange);">Hoppy Music</p>
-                    <p>Le Hoppy Music Festival réunit chaque année artistes locaux, foodtrucks, artisans et bières artisanales pour une journée conviviale à Louvres. Entre deux éditions, les Hoppy Music Sessions font vivre la scène locale dans des formats plus intimistes.</p>
-                    <a href="https://hoppymusic.fr" target="_blank" class="btn-primary">Découvrir Hoppy Music</a>
+                <div class="project-tile reveal reveal-delay-1">
+                    <div class="project-tile-visual">
+                        <img src="assets/images/hoppy-music-session-live.jpg" alt="Concert lors d'une Hoppy Music Session" loading="lazy">
+                    </div>
+                    <div class="project-tile-content">
+                        <span class="action-role">Format intimiste</span>
+                        <h3>Hoppy Music Sessions</h3>
+                        <p>Entre deux éditions du festival, nos Sessions font vivre la scène locale toute l'année : scènes ouvertes, plateaux d'artistes émergents et soirées acoustiques.</p>
+                        <div class="stat"><strong>4</strong><span>Sessions organisées</span></div>
+                        <a href="https://hoppymusic.fr" target="_blank" class="btn-primary">Voir les prochaines dates</a>
+                    </div>
                 </div>
             </div>
         </div>
