@@ -27,10 +27,13 @@
 
     <link rel="icon" type="image/jpeg" href="assets/images/fav-CLA.jpg">
     <link rel="apple-touch-icon" href="assets/images/fav-CLA.jpg">
+    <link rel="preload" as="image" href="assets/images/hoppy-music-highlight.jpg" fetchpriority="high">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Raleway:wght@400;600&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Raleway:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Raleway:wght@400;600&display=swap" rel="stylesheet"></noscript>
 
     <!-- Structured data -->
     <script type="application/ld+json">
@@ -169,7 +172,7 @@
             justify-content: space-between;
         }
 
-        .nav-logo img { height: 34px; }
+        .nav-logo img { height: 34px; width: auto; }
 
         .nav-links {
             display: flex;
@@ -486,7 +489,7 @@
             margin-bottom: var(--space-xl);
         }
 
-        .footer-grid img.footer-logo { height: 32px; margin-bottom: var(--space-md); }
+        .footer-grid img.footer-logo { height: 32px; width: auto; margin-bottom: var(--space-md); }
 
         .footer-grid p { color: var(--color-text-secondary); font-size: 14px; }
 
@@ -553,7 +556,7 @@
 
     <nav class="nav">
         <div class="nav-inner">
-            <a href="#" class="nav-logo"><img src="assets/images/logo-black.png" alt="Culture Louvres & Alentours"></a>
+            <a href="#" class="nav-logo"><img src="assets/images/logo-black.png" alt="Culture Louvres & Alentours" width="228" height="96"></a>
             <div class="nav-links">
                 <a href="#histoire" class="nav-link">Qui sommes-nous</a>
                 <a href="#projets" class="nav-link">Nos projets</a>
@@ -587,7 +590,7 @@
     <section id="histoire">
         <div class="container histoire-grid">
             <div class="histoire-visual reveal">
-                <img src="assets/images/hoppy-music-highlight.jpg" alt="Concert organisé par Culture Louvres & Alentours à Louvres, Val d'Oise" loading="lazy">
+                <img src="assets/images/hoppy-music-highlight.jpg" alt="Concert organisé par Culture Louvres & Alentours à Louvres, Val d'Oise" fetchpriority="high">
             </div>
             <div class="histoire-text reveal reveal-delay-1">
                 <p class="eyebrow">Qui sommes-nous</p>
@@ -710,7 +713,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <img src="assets/images/logo-black.png" alt="Culture Louvres & Alentours" class="footer-logo" loading="lazy">
+                    <img src="assets/images/logo-black.png" alt="Culture Louvres & Alentours" class="footer-logo" width="228" height="96" loading="lazy">
                     <p>Association culturelle loi 1901, basée à Louvres, Val d'Oise (95380).</p>
                 </div>
                 <div class="footer-col">
